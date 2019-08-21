@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Editor de Polígonos </string>
+  </property>
+  <widget class="QWidget" name="centralWidget"/>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>400</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuArquivo">
+    <property name="title">
+     <string>Arquivo</string>
+    </property>
+    <addaction name="actionNovo"/>
+    <addaction name="actionAbrir"/>
+    <addaction name="actionSalvar"/>
+   </widget>
+   <widget class="QMenu" name="menuInserir">
+    <property name="title">
+     <string>Inserir</string>
+    </property>
+    <addaction name="actionInserir_Retangulo"/>
+    <addaction name="actionInserir_Circulo"/>
+    <addaction name="actionInserir_Triangulo"/>
+    <addaction name="actionInserir_Hexagono"/>
+   </widget>
+   <widget class="QMenu" name="menuEditar">
+    <property name="title">
+     <string>Editar</string>
+    </property>
+    <addaction name="actionEditar_Poligono"/>
+    <addaction name="separator"/>
+    <addaction name="actionRemover_Poligono"/>
+    <addaction name="actionLimpar_Tela_de_Desenho"/>
+   </widget>
+   <addaction name="menuArquivo"/>
+   <addaction name="menuInserir"/>
+   <addaction name="menuEditar"/>
+  </widget>
+  <action name="actionNovo">
+   <property name="text">
+    <string>Novo</string>
+   </property>
+  </action>
+  <action name="actionAbrir">
+   <property name="text">
+    <string>Abrir</string>
+   </property>
+  </action>
+  <action name="actionSalvar">
+   <property name="text">
+    <string>Salvar</string>
+   </property>
+  </action>
+  <action name="actionInserir_Retangulo">
+   <property name="text">
+    <string>Inserir Retângulo</string>
+   </property>
+  </action>
+  <action name="actionInserir_Circulo">
+   <property name="text">
+    <string>Inserir Círculo</string>
+   </property>
+  </action>
+  <action name="actionInserir_Triangulo">
+   <property name="text">
+    <string>Inserir Triângulo</string>
+   </property>
+  </action>
+  <action name="actionInserir_Hexagono">
+   <property name="text">
+    <string>Inserir Hexágono</string>
+   </property>
+  </action>
+  <action name="actionEditar_Poligono">
+   <property name="text">
+    <string>Editar Polígono</string>
+   </property>
+  </action>
+  <action name="actionRemover_Poligono">
+   <property name="text">
+    <string>Remover Polígono</string>
+   </property>
+  </action>
+  <action name="actionLimpar_Tela_de_Desenho">
+   <property name="text">
+    <string>Limpar Tela de Desenho</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>

@@ -1,0 +1,19 @@
+	;CORPO DA ROTINA PRINCIPAL
+	
+	;BSF GPIO, GP5		;Saída GP5 colocada em nível alto 
+	
+;TESTE1	;BTFSS INTCON, T0IF
+	;GOTO  TESTE1
+	
+	;MOVLW .18
+	;MOVWF TMR0
+	;BCF   INTCON, T0IF
+	
+	;BCF GPIO, GP5		;Saída GP5 colocada em nível baixo 
+	
+;TESTE2	;BTFSS INTCON, T0IF
+	;GOTO  TESTE2
+	
+	;MOVLW .18
+	;MOVWF TMR0
+	;BCF   INTCON, T0IF

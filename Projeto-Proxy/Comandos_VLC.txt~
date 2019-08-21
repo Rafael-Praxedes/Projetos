@@ -1,0 +1,10 @@
+Comandos para criar o streamer no VLC 
+
+1) Midia->fluxo;
+2) Add (Adcionar arquivo) -> fluxo->next;
+3) Arquivo-> udp (legacy) -> adcionar (Preencher com o IP e a porta correspondentes) -> next;
+4) Perfil (TS)-> configurações (Símbolo das ferramentas) -> MPEG -> Salvar -> next -> stream. 
+
+Comandos para criar o receptor no VLC
+
+1) Mídia -> abrir fluxo de rede -> (inserir a porta) -> Reproduzir 

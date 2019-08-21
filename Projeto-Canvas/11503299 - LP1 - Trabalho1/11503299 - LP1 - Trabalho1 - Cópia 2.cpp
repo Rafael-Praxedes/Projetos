@@ -1,0 +1,831 @@
+/****
+ *
+ * Autor: Rafael Maranhão Rêgo Praxedes
+ *
+ * Data de Criação:  02/04/2016
+ * Última alteração: 09/04/2016
+ *
+ * Descrição Geral: Primeira parte do projeto da disciplina de LP1
+ *
+ ****/
+
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <string>
+#include <string.h>
+#include <vector>
+
+#define PI 3.14
+#define NUMERO_MAXIMO 100
+#define TAM 11
+#define REFERENCIA 999999
+
+using namespace std;
+
+/********** CLASSE POLIGONO **********/
+
+ class Poligono
+{
+   int coordenadasCentro[2];
+   int zIndex;
+   string cor;
+
+public:
+   Poligono& setCor(string c);
+   Poligono& setCoordenadasCentro (int* centro);
+   virtual string getTipo(void) = 0;
+   virtual int Area(void) = 0;
+   virtual int Perimetro(void) = 0;
+   int* getCentroPoligono(void);
+   string getCorPoligono(void);
+};
+
+Poligono& Poligono::setCor(string c)
+{
+   this->cor = c;
+
+   return *this;
+}
+
+Poligono& Poligono::setCoordenadasCentro(int* centro)
+{
+   for (int i = 0; i < 2; i++){
+         this->coordenadasCentro[i] = centro[i];
+   }
+
+   return *this;
+}
+
+string Poligono::getCorPoligono(void)
+{
+   return cor;
+}
+
+int* Poligono::getCentroPoligono(void)
+{
+   return coordenadasCentro;
+}
+
+/********** CLASSE RETANGULO **********/
+
+class Retangulo: public Poligono
+{
+   int base;
+   int altura;
+   string tipo;
+
+public:
+    Retangulo& setBase(int b);
+    Retangulo& setAltura(int a);
+    string getTipo(void);
+    int Area(void);
+    int Perimetro(void);
+};
+
+Retangulo& Retangulo::setBase(int b)
+{
+   this->base = b;
+
+   return *this;
+}
+
+Retangulo& Retangulo::setAltura(int a)
+{
+   this->altura = a;
+
+   return *this;
+}
+
+string Retangulo::getTipo(void)
+{
+   return  tipo = "Retangulo";
+}
+
+int Retangulo::Area(void)
+{
+   return base*altura;
+}
+
+int Retangulo::Perimetro(void)
+{
+   return (2*base + 2*altura);
+}
+
+/********** CLASSE CIRCULO **********/
+
+class Circulo: public Poligono
+{
+   int raio;
+   string tipo;
+
+public:
+   Circulo& setRaio(int r);
+   string getTipo(void);
+   int Area(void);
+   int Perimetro(void);
+};
+
+Circulo& Circulo::setRaio(int r)
+{
+   this->raio = r;
+
+   return *this;
+}
+
+string Circulo::getTipo(void)
+{
+   return  tipo = "Circulo";
+}
+
+int Circulo::Area(void)
+{
+   int area = (int) PI*raio*raio;
+   return area;
+}
+
+int Circulo::Perimetro(void)
+{
+   int perimetro = (int) 2*PI*raio;
+   return perimetro;
+}
+
+/********** CLASSE PENTAGONO **********/
+
+class Pentagono: public Poligono
+{
+   int lado;
+   string tipo;
+
+public:
+   Pentagono& setLado(int l);
+   string getTipo(void);
+   int Area(void);
+   int Perimetro(void);
+};
+
+Pentagono& Pentagono::setLado(int l)
+{
+    lado = l;
+
+    return *this;
+}
+
+string Pentagono::getTipo(void)
+{
+   return  tipo = "Pentagono regular";
+}
+
+int Pentagono::Area(void)
+{
+   int a = (int) (5*lado*lado)/(4*sqrt(5 - 2*sqrt(5)));
+
+   return a;
+}
+
+int Pentagono::Perimetro(void)
+{
+   int p = 5*lado;
+
+   return p;
+}
+
+/********** CLASSE HEXAGONO **********/
+
+class Hexagono: public Poligono
+{
+   int lado;
+   string tipo;
+
+public:
+    Hexagono& setLado(int l);
+    string getTipo(void);
+    int Area(void);
+    int Perimetro(void);
+};
+
+Hexagono&Hexagono::setLado(int l)
+{
+   lado = l;
+
+   return *this;
+}
+
+string Hexagono::getTipo(void)
+{
+   return  tipo = "Hexagono regular";
+}
+
+int Hexagono::Area(void)
+{
+   int a = (int) 6*(lado*lado*sqrt(3))/4;
+
+   return a;
+}
+
+int Hexagono::Perimetro(void)
+{
+   int p = 6*lado;
+
+   return p;
+}
+
+/********** CLASSE CANVAS **********/
+
+class Canvas
+{
+   int tamanhoEmPixels[2];
+   vector <Poligono*> poligonosDoCanvas;
+public:
+   Canvas (int c, int l);
+   int* getTamanhoDoCanvas(void);
+   void setPoligonosDoCanvas(Poligono* p);
+   vector<Poligono*>& getPoligonosDoCanvas(void);
+   void ExibePoligonosDoCanvas(void);
+};
+
+Canvas::Canvas(int c, int l)
+{
+   tamanhoEmPixels[0] = c;
+   tamanhoEmPixels[1] = l;
+}
+
+void Canvas::setPoligonosDoCanvas(Poligono* p)
+{
+   poligonosDoCanvas.push_back(p);
+}
+
+int* Canvas::getTamanhoDoCanvas(void)
+{
+   return tamanhoEmPixels;
+}
+
+vector<Poligono*>& Canvas::getPoligonosDoCanvas(void)
+{
+   return poligonosDoCanvas;
+}
+
+void Canvas::ExibePoligonosDoCanvas(void)
+{
+   system("cls");
+
+   cout << "\n\t>>> LISTA DE POLIGONOS <<<\n" << endl;
+
+   if (!poligonosDoCanvas.size()){
+      cout << "\n\aNao ha nada para exibir na tela!" << endl;
+   }
+
+   for(unsigned int i = 0; i < poligonosDoCanvas.size(); i++){
+
+         cout << "\nTipo: " << poligonosDoCanvas[i]->getTipo() << endl;
+
+         cout << "\nCentro: (" <<  poligonosDoCanvas[i]->getCentroPoligono()[0] << ", " << poligonosDoCanvas[i]->getCentroPoligono()[1] << ")" << endl;
+
+         cout << "\nCor: " << poligonosDoCanvas[i]->getCorPoligono() << endl;
+
+         cout << "\nArea: " << poligonosDoCanvas[i]->Area() << endl;
+
+         cout << "\nPerimetro: " << poligonosDoCanvas[i]->Perimetro() << endl << endl;
+   }
+}
+
+/********** FUNCAO ExibeMenu **********/
+
+void ExibeMenu(void)
+{
+   printf ("\n\t>>> MENU DE OPERACOES <<<\n"
+           "\n1 - Exibir informacoes da tela de desenho"
+           "\n2 - Inserir Retangulo"
+           "\n3 - Inserir Circulo"
+           "\n4 - Inserir Pentagono regular"
+           "\n5 - Inserir Hexagono regular"
+           "\n6 - Exibir poligonos na tela"
+           "\n7 - Eliminar poligono pelo indice de insercao"
+           "\n8 - Salvar um arquivo de texto contendo todos os poligonos do Canvas"
+           "\n9 - Sair\n");
+}
+
+/********** FUNCAO ExibeInformacoesDoCanvas **********/
+
+void ExibeInformacoesDoCanvas(Canvas& c)
+{
+   system("cls");
+
+   cout << "\n\t>>> INFORMACOES DA TELA DE DESENHO <<<\n" << endl;
+
+   int *p = c.getTamanhoDoCanvas();
+
+   cout << "\nResolucao da tela: " << p[0] << " x " << p[1] << " pixels" << endl;
+   cout << "\nQuantidade de poligonos: " << (c.getPoligonosDoCanvas().size()) << endl;
+
+}
+
+/********** FUNCAO InsereRetangulo **********/
+
+void InsereRetangulo(Canvas& c, vector<Retangulo*> &r, int i)
+{
+   int b, a;
+   int centro[2];
+   string cor;
+
+   static Retangulo ret[NUMERO_MAXIMO];
+
+   r.push_back(&ret[i]);
+
+   system("cls");
+
+   cout << "\n\t>>> Retangulo <<<\n";
+
+   cout << "\nDigite um valor inteiro correspondente a coordenada x do centro: ";
+   cin  >> centro[0];
+
+   cout << "\nDigite um valor inteiro correspondente a coordenada y do centro: ";
+   cin  >> centro[1];
+
+   int* verificador = c.getTamanhoDoCanvas();
+
+   while (centro[0] > verificador[1] || centro[1] > verificador[0]){
+
+        system("cls");
+
+        cout << "\n\aO limite da tela nao pode ser ultrapassado! Por favor, tente novamente!" << endl;
+
+        cout << "\nDigite um valor inteiro correspondente a coordenada x do centro: ";
+        cin  >> centro[0];
+
+        cout << "\nDigite um valor inteiro correspondente a coordenada y do centro: ";
+        cin  >> centro[1];
+   }
+
+   r[i]->setCoordenadasCentro(centro);
+
+   cout << "\nDigite a cor do retangulo: ";
+   cin  >> cor;
+
+   r[i]->setCor(cor);
+
+   cout << "\nDigite um valor inteiro correspondente a base do retangulo: ";
+   cin  >> b;
+
+   r[i]->setBase(b);
+
+   cout << "\nDigite um valor inteiro correspondente a altura do retangulo: ";
+   cin  >> a;
+
+   r[i]->setAltura(a);
+
+   c.setPoligonosDoCanvas(r[i]);
+
+   cout << "\nRetangulo inserido com sucesso!" << endl << endl;
+
+}
+
+/********** FUNCAO InsereCirculo **********/
+
+void InsereCirculo(Canvas& c, vector<Circulo*> &cir, int i)
+{
+   int r;
+   int centro[2];
+   string cor;
+
+   static Circulo circul[NUMERO_MAXIMO];
+
+   cir.push_back(&circul[i]);
+
+   system("cls");
+
+   cout << "\n\t>>> Circulo <<<\n";
+
+   cout << "\nDigite um valor inteiro correspondente a coordenada x do centro: ";
+   cin  >> centro[0];
+
+   cout << "\nDigite um valor inteiro correspondente a coordenada y do centro: ";
+   cin  >> centro[1];
+
+   int* verificador = c.getTamanhoDoCanvas();
+
+   while (centro[0] > verificador[1] || centro[1] > verificador[0]){
+
+        system("cls");
+
+        cout << "\n\aO limite da tela nao pode ser ultrapassado! Por favor, tente novamente!" << endl;
+
+        cout << "\nDigite um valor inteiro correspondente a coordenada x do centro: ";
+        cin  >> centro[0];
+
+        cout << "\nDigite um valor inteiro correspondente a coordenada y do centro: ";
+        cin  >> centro[1];
+   }
+
+   cir[i]->setCoordenadasCentro(centro);
+
+   cout << "\nDigite a cor do circulo: ";
+   cin  >> cor;
+
+   cir[i]->setCor(cor);
+
+   cout << "\nDigite um valor inteiro correspondente ao raio do circulo: ";
+   cin  >> r;
+
+   cir[i]->setRaio(r);
+
+   c.setPoligonosDoCanvas(cir[i]);
+
+   cout << "\nCirculo inserido com sucesso!" << endl << endl;
+
+}
+
+/********** FUNCAO InserePentagono **********/
+
+void InserePentagono(Canvas& c, vector<Pentagono*> &p, int i)
+{
+   int l;
+   int centro[2];
+   string cor;
+
+   static Pentagono pent[NUMERO_MAXIMO];
+
+   p.push_back(&pent[i]);
+
+   system("cls");
+
+   cout << "\n\t>>> Pentagono Regular <<<\n";
+
+   cout << "\nDigite um valor inteiro correspondente a coordenada x do centro: ";
+   cin  >> centro[0];
+
+   cout << "\nDigite um valor inteiro correspondente a coordenada y do centro: ";
+   cin  >> centro[1];
+
+   int* verificador = c.getTamanhoDoCanvas();
+
+   while (centro[0] > verificador[1] || centro[1] > verificador[0]){
+
+        system("cls");
+
+        cout << "\n\aO limite da tela nao pode ser ultrapassado! Por favor, tente novamente!" << endl;
+
+        cout << "\nDigite um valor inteiro correspondente a coordenada x do centro: ";
+        cin  >> centro[0];
+
+        cout << "\nDigite um valor inteiro correspondente a coordenada y do centro: ";
+        cin  >> centro[1];
+   }
+
+   p[i]->setCoordenadasCentro(centro);
+
+   cout << "\nDigite a cor do pentagono regular: ";
+   cin  >> cor;
+
+   p[i]->setCor(cor);
+
+   cout << "\nDigite um valor inteiro correspondente ao lado do pentagono regular: ";
+   cin  >> l;
+
+   p[i]->setLado(l);
+
+   c.setPoligonosDoCanvas(p[i]);
+
+   cout << "\nPentagono regular inserido com sucesso!" << endl << endl;
+
+}
+
+/********** FUNCAO InsereHexagono **********/
+
+void InsereHexagono(Canvas& c, vector<Hexagono*> &h, int i)
+{
+   int l;
+   int centro[2];
+   string cor;
+
+   static Hexagono hex[NUMERO_MAXIMO];
+
+   h.push_back(&hex[i]);
+
+   system("cls");
+
+   cout << "\n\t>>> Hexagono Regular <<<\n";
+
+   cout << "\nDigite um valor inteiro correspondente a coordenada x do centro: ";
+   cin  >> centro[0];
+
+   cout << "\nDigite um valor inteiro correspondente a coordenada y do centro: ";
+   cin  >> centro[1];
+
+   int* verificador = c.getTamanhoDoCanvas();
+
+   while (centro[0] > verificador[1] || centro[1] > verificador[0]){
+
+        system("cls");
+
+        cout << "\n\aO limite da tela nao pode ser ultrapassado! Por favor, tente novamente!" << endl;
+
+        cout << "\nDigite um valor inteiro correspondente a coordenada x do centro: ";
+        cin  >> centro[0];
+
+        cout << "\nDigite um valor inteiro correspondente a coordenada y do centro: ";
+        cin  >> centro[1];
+   }
+
+   h[i]->setCoordenadasCentro(centro);
+
+   cout << "\nDigite a cor do hexagono regular: ";
+   cin  >> cor;
+
+   h[i]->setCor(cor);
+
+   cout << "\nDigite um valor inteiro correspondente ao lado do hexagono regular: ";
+   cin  >> l;
+
+   h[i]->setLado(l);
+
+   c.setPoligonosDoCanvas(h[i]);
+
+   cout << "\nHexagono regular inserido com sucesso!" << endl << endl;
+
+}
+
+/********** FUNCAO EliminaPoligono **********/
+
+void EliminaPoligono(Canvas& c, int i)
+{
+    vector<Poligono*>::iterator it;
+
+    it = c.getPoligonosDoCanvas().begin();
+
+    c.getPoligonosDoCanvas().erase(it + i);
+
+    cout << "\nPoligono excluido com sucesso!" << endl;
+}
+
+/********** FUNCAO GeraArquivoDeTexto **********/
+
+int GeraArquivoDeTexto(Poligono *p, Canvas& c, int nVezes)
+{
+    if (c.getPoligonosDoCanvas().size() == 0){
+            return -1;
+    }
+
+    if (nVezes > 0){
+        return 1;
+    }
+
+    char strTipo[NUMERO_MAXIMO];
+    char strCor[NUMERO_MAXIMO];
+    char strCentro[NUMERO_MAXIMO];
+    char strArea[NUMERO_MAXIMO];
+    char strPerimetro[NUMERO_MAXIMO];
+
+    strcpy(strTipo, "Tipo: ");
+    strcpy(strCor, "Cor: ");
+    strcpy(strCentro, "Centro:(");
+    strcpy(strArea, "Area: ");
+    strcpy(strPerimetro, "Perimetro: ");
+
+    char centroX[TAM], centroY[TAM];
+    char area[TAM], perimetro[TAM];
+
+    FILE *file;
+    file = fopen("ListaDePoligonos.txt", "a+");
+
+    fprintf(file, "\n\n");
+
+    fprintf(file, strcat(strTipo, p->getTipo().c_str()));
+    fprintf(file, "\n");
+
+    sprintf(centroX, "%d", p->getCentroPoligono()[0]); //convertendo inteiro em string
+    sprintf(centroY, "%d", p->getCentroPoligono()[1]); //convertendo inteiro em string
+
+    strcat(strCentro, centroX);
+    strcat(strCentro, ", ");
+    strcat(strCentro, centroY);
+    strcat(strCentro, ")");
+
+    fprintf(file, strCentro);
+    fprintf(file, "\n");
+    fprintf(file, strcat(strCor, p->getCorPoligono().c_str()));
+    fprintf(file, "\n");
+
+    sprintf(area, "%d", p->Area());
+    strcat(strArea, area);
+
+    fprintf(file, strArea);
+    fprintf(file, "\n");
+
+    sprintf(perimetro, "%d", p->Perimetro());
+    strcat(strPerimetro, perimetro);
+
+    fprintf(file, strPerimetro);
+    fprintf(file, "\n");
+
+    fclose(file);
+
+    return 0;
+}
+
+/********** FUNCAO main **********/
+
+int main (void)
+{
+  int comprimento, largura, opcao;
+
+  static int indiceRetangulo = 0;
+  static int indiceCirculo = 0;
+  static int indicePentagono = 0;
+  static int indiceHexagono = 0;
+  static int nExecucoes = 0;
+
+  vector <Retangulo*> retangulos;
+  vector <Circulo*> circulos;
+  vector <Pentagono*> pentagonos;
+  vector <Hexagono*> hexagonos;
+
+  cout << "\n\t>>>>> Editor grafico de poligonos <<<<<\n" << endl;
+
+  cout << "\n\t>>> Tela de Desenho <<<\n" << endl;
+
+  cout << "\nDigite um valor correspondente ao comprimento da tela(Max: 6 digitos): ";
+  cin  >> comprimento;
+
+  while (comprimento > REFERENCIA || !comprimento){
+
+        cout << "\n\aOpcao Invalida! Tente Novamente!" << endl;
+        cout << "\nDigite um valor correspondente ao comprimento da tela (Max: 6 digitos): ";
+        cin  >> comprimento;
+  }
+
+  cout << "\nDigite um valor correspondente a largura da tela (Max: 6 digitos): ";
+  cin  >> largura;
+
+  while (largura > REFERENCIA || !largura){
+
+        cout << "\n\aOpcao Invalida! Tente Novamente!" << endl;
+        cout << "\nDigite um valor correspondente a largura da tela(Max: 6 digitos): ";
+        cin  >> largura;
+  }
+
+ Canvas tela(comprimento, largura);
+
+ while (1){
+
+      ExibeMenu();
+
+      inicio:
+         cout << "\nDigite o numero correspondente a operacao que voce deseja: ";
+         cin  >> opcao;
+
+         if (opcao == 9){
+               system("cls");
+               cout << "\nPrograma Encerrado!" << endl;
+               break;
+         }
+
+         switch (opcao){
+
+         case 1:
+            ExibeInformacoesDoCanvas(tela);
+            break;
+
+         case 2:
+            InsereRetangulo(tela, retangulos, indiceRetangulo);
+            indiceRetangulo++;
+
+            if(nExecucoes > 0){
+                nExecucoes--;
+            }
+
+            if (!nExecucoes){
+                remove("ListaDePoligonos.txt");
+            }
+
+            break;
+
+         case 3:
+           InsereCirculo(tela, circulos, indiceCirculo);
+           indiceCirculo++;
+
+           if(nExecucoes > 0){
+                nExecucoes--;
+           }
+
+           if (!nExecucoes){
+                remove("ListaDePoligonos.txt");
+           }
+
+           break;
+
+         case 4:
+           InserePentagono(tela, pentagonos, indicePentagono);
+           indicePentagono++;
+
+           if(nExecucoes > 0){
+                nExecucoes--;
+           }
+
+           if (!nExecucoes){
+                remove("ListaDePoligonos.txt");
+           }
+
+           break;
+
+         case 5:
+           InsereHexagono(tela, hexagonos, indiceHexagono);
+           indiceHexagono++;
+
+           if(nExecucoes > 0){
+                nExecucoes--;
+           }
+
+           if (!nExecucoes){
+                remove("ListaDePoligonos.txt");
+           }
+
+           break;
+
+         case 6:
+            tela.ExibePoligonosDoCanvas();
+            break;
+
+         case 7:
+             unsigned int indice;
+
+             system("cls");
+
+             if (tela.getPoligonosDoCanvas().size() == 0){
+                    cout << "\n\aNao ha nada para eliminar!" << endl;
+                    break;
+             }
+
+             cout << "\nDigite um valor inteiro equivalente ao indice do poligono que sera excluido: ";
+             cin >> indice;
+
+             while (indice > tela.getPoligonosDoCanvas().size() || !indice){
+                    cout << "\n\aErro! Nao se pode acessar um elemento alem do tamanhdo do conjunto" << endl;
+                    cout << "\nDigite um valor inteiro equivalente ao indice do poligono que sera excluido: ";
+                    cin >> indice;
+             }
+
+             if (tela.getPoligonosDoCanvas()[indice-1]->getTipo() == "Retangulo"){
+                    indiceRetangulo--;
+             }
+
+             if (tela.getPoligonosDoCanvas()[indice-1]->getTipo() == "Circulo"){
+                    indiceCirculo--;
+             }
+
+             if (tela.getPoligonosDoCanvas()[indice-1]->getTipo() == "Pentagono regular"){
+                    indicePentagono--;
+             }
+
+             if (tela.getPoligonosDoCanvas()[indice-1]->getTipo() == "Hexagono regular"){
+                    indiceHexagono--;
+             }
+
+             EliminaPoligono(tela, indice - 1);
+
+             if(nExecucoes > 0){
+                    nExecucoes--;
+             }
+
+             if (!nExecucoes){
+                    remove("ListaDePoligonos.txt");
+             }
+
+             break;
+
+         case 8:
+
+             int verificador;
+
+             for (unsigned int i = 0; i < tela.getPoligonosDoCanvas().size(); i++){
+                verificador = GeraArquivoDeTexto(tela.getPoligonosDoCanvas()[i], tela, nExecucoes);
+             }
+
+             system("cls");
+
+             if (verificador == 1){
+                    cout << "\nO arquivo ja foi gerado!" << endl;
+             }
+
+             if (verificador == -1 || !tela.getPoligonosDoCanvas().size()){
+                    cout << "\n\aO arquivo nao foi gerado, por falta de informacoes!" << endl;
+             }
+
+             if (!verificador){
+                    cout << "\nArquivo gerado com sucesso!" << endl;
+                    nExecucoes++;
+             }
+
+             break;
+
+         default:
+            cout << "\nOpcao Invalida! Tente Novamente!" << endl;
+            ExibeMenu();
+            goto inicio;
+            break;
+         }//switch
+  }//while
+
+  return 0;
+}

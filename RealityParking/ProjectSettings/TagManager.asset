@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Car_3
+  - Car_1
+  - Car_2
+  - Car_4
+  - Car_5
+  - Car_6
+  - Car3_Body
+  - Car3_Shadow
+  - Car3_Wheels
+  - ParkingLot3
+  - ParkingLot
+  - ParkingLot1
+  - ParkingLot2
+  - ParkingLot4
+  - ParkingLot5
+  - ParkingLot6
+  - ParkingLot7
+  - ParkingLot8
+  - ParkingLot9
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - PostProcessing
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
