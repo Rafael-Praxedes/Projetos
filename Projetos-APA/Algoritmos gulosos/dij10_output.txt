@@ -1,0 +1,183 @@
+Autor: Rafael Maranhão Rêgo Praxedes
+Matrícula: 11503299
+Disciplina: Análise e Projeto de Algoritmos
+
+		 >>>>> Algoritmos Gulosos <<<<<
+
+Input file name: dij10.txt
+
+>>> Prim <<<
+
+Vertex[0]:
+	>>> Path: -1
+	>>> Value edge: 0
+Vertex[1]:
+	>>> Path: 0
+	>>> Value edge: 270
+Vertex[2]:
+	>>> Path: 3
+	>>> Value edge: 504
+Vertex[3]:
+	>>> Path: 4
+	>>> Value edge: 151
+Vertex[4]:
+	>>> Path: 1
+	>>> Value edge: 2564
+Vertex[5]:
+	>>> Path: 4
+	>>> Value edge: 272
+Vertex[6]:
+	>>> Path: 5
+	>>> Value edge: 241
+Vertex[7]:
+	>>> Path: 5
+	>>> Value edge: 1560
+Vertex[8]:
+	>>> Path: 7
+	>>> Value edge: 1274
+Vertex[9]:
+	>>> Path: 8
+	>>> Value edge: 236
+
+-----------------
+Value MST: 7072
+-----------------
+
+>>> Dijkstra <<<
+
+Vertex[0]:
+	>>> Path: -1
+	>>> Value edge: 0
+Vertex[8]:
+	>>> Path: 0
+	>>> Value edge: 4947
+Vertex[9]:
+	>>> Path: 8
+	>>> Value edge: 5183
+
+---------------------
+Value Dijkstra: 5183
+---------------------
+Autor: Rafael Maranhão Rêgo Praxedes
+Matrícula: 11503299
+Disciplina: Análise e Projeto de Algoritmos
+
+		 >>>>> Algoritmos Gulosos <<<<<
+
+Input file name: dij10.txt
+
+>>> Prim <<<
+
+Vertex[0]:
+	>>> Path: -1
+	>>> Value edge: 0
+Vertex[1]:
+	>>> Path: 0
+	>>> Value edge: 270
+Vertex[2]:
+	>>> Path: 3
+	>>> Value edge: 504
+Vertex[3]:
+	>>> Path: 4
+	>>> Value edge: 151
+Vertex[4]:
+	>>> Path: 1
+	>>> Value edge: 2564
+Vertex[5]:
+	>>> Path: 4
+	>>> Value edge: 272
+Vertex[6]:
+	>>> Path: 5
+	>>> Value edge: 241
+Vertex[7]:
+	>>> Path: 5
+	>>> Value edge: 1560
+Vertex[8]:
+	>>> Path: 7
+	>>> Value edge: 1274
+Vertex[9]:
+	>>> Path: 8
+	>>> Value edge: 236
+
+-----------------
+Value MST: 7072
+-----------------
+
+>>> Dijkstra <<<
+
+Vertex[0]:
+	>>> Path: 1
+	>>> Value edge: 270
+Vertex[0]:
+	>>> Path: 1
+	>>> Value edge: 270
+Vertex[8]:
+	>>> Path: 0
+	>>> Value edge: 5217
+Vertex[9]:
+	>>> Path: 8
+	>>> Value edge: 5453
+
+---------------------
+Value Dijkstra: 5453
+---------------------
+Autor: Rafael Maranhão Rêgo Praxedes
+Matrícula: 11503299
+Disciplina: Análise e Projeto de Algoritmos
+
+		 >>>>> Algoritmos Gulosos <<<<<
+
+Input file name: dij10.txt
+
+>>> Prim <<<
+
+Vertex[0]:
+	>>> Path: -1
+	>>> Value edge: 0
+Vertex[1]:
+	>>> Path: 0
+	>>> Value edge: 270
+Vertex[2]:
+	>>> Path: 3
+	>>> Value edge: 504
+Vertex[3]:
+	>>> Path: 4
+	>>> Value edge: 151
+Vertex[4]:
+	>>> Path: 1
+	>>> Value edge: 2564
+Vertex[5]:
+	>>> Path: 4
+	>>> Value edge: 272
+Vertex[6]:
+	>>> Path: 5
+	>>> Value edge: 241
+Vertex[7]:
+	>>> Path: 5
+	>>> Value edge: 1560
+Vertex[8]:
+	>>> Path: 7
+	>>> Value edge: 1274
+Vertex[9]:
+	>>> Path: 8
+	>>> Value edge: 236
+
+-----------------
+Value MST: 7072
+-----------------
+
+>>> Dijkstra <<<
+
+Vertex[0]:
+	>>> Path: 1
+	>>> Value edge: 2985
+Vertex[5]:
+	>>> Path: 3
+	>>> Value edge: 423
+Vertex[9]:
+	>>> Path: 5
+	>>> Value edge: 3429
+
+---------------------
+Value Dijkstra: 3429
+---------------------

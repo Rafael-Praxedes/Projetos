@@ -1,0 +1,20 @@
+int main (int argc, char** argv)
+{
+	int nProcessos = atoi(argv[1]);
+
+	Processo *vetorProcessos[nProcessos];
+
+	for(int i = 0; i < nProcessos; i++){
+		vetorProcessos[i] = new Processo(atoi(argv[2*i+2]), atoi(argv[2*i+3])); 
+	}
+
+	cout << "Processos criados com sucesso!" << endl;
+
+    for(int i = 0; i < nProcessos; i++){
+    	cout << "Processo[" << i << "]: " << vetorProcessos[i]->getTempoChegada() << " " << vetorProcessos[i]->getDuracao() << endl; 
+    }
+
+    cout << "Programa encerrado!" << endl;
+
+	return 0;
+}

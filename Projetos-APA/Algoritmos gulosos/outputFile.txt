@@ -1,0 +1,213 @@
+Autor: Rafael Maranhão Rêgo Praxedes
+Matrícula: 11503299
+Disciplina: Análise e Projeto de Algoritmos
+
+		 >>>>> Algoritmos Gulosos <<<<<
+
+Input file name: /home/rafael-praxedes/Disciplinas/APA/Projeto Final/testeEntrada.txt
+
+>>> Prim <<<
+
+Vertex[0]:
+	>>> Path: -1
+	>>> Value edge: 0
+Vertex[1]:
+	>>> Path: 0
+	>>> Value edge: 1
+Vertex[2]:
+	>>> Path: 0
+	>>> Value edge: 2
+Vertex[3]:
+	>>> Path: 2
+	>>> Value edge: 4
+Vertex[4]:
+	>>> Path: 0
+	>>> Value edge: 2
+
+-----------------
+Value MST: 9
+-----------------
+
+>>> Dijkstra <<<
+
+Vertex[0]:
+	>>> Path: -1
+	>>> Value edge: 0
+Vertex[4]:
+	>>> Path: 0
+	>>> Value edge: 2
+
+---------------------
+Value Dijkstra: 2
+---------------------
+Autor: Rafael Maranhão Rêgo Praxedes
+Matrícula: 11503299
+Disciplina: Análise e Projeto de Algoritmos
+
+		 >>>>> Algoritmos Gulosos <<<<<
+
+Input file name: /home/rafael-praxedes/Disciplinas/APA/Projeto Final/testeEntrada.txt
+
+>>> Prim <<<
+
+Vertex[0]:
+	>>> Path: -1
+	>>> Value edge: 0
+Vertex[1]:
+	>>> Path: 0
+	>>> Value edge: 1
+Vertex[2]:
+	>>> Path: 0
+	>>> Value edge: 2
+Vertex[3]:
+	>>> Path: 2
+	>>> Value edge: 4
+Vertex[4]:
+	>>> Path: 0
+	>>> Value edge: 2
+
+-----------------
+Value MST: 9
+-----------------
+
+>>> Dijkstra <<<
+
+Vertex[0]:
+	>>> Path: -1
+	>>> Value edge: 0
+Vertex[4]:
+	>>> Path: 0
+	>>> Value edge: 2
+
+---------------------
+Value Dijkstra: 2
+---------------------
+Autor: Rafael Maranhão Rêgo Praxedes
+Matrícula: 11503299
+Disciplina: Análise e Projeto de Algoritmos
+
+		 >>>>> Algoritmos Gulosos <<<<<
+
+Input file name: testePMedian.txt
+
+>>> Prim <<<
+
+Vertex[0]:
+	>>> Path: -1
+	>>> Value edge: 0
+Vertex[1]:
+	>>> Path: 0
+	>>> Value edge: 10
+Vertex[2]:
+	>>> Path: 1
+	>>> Value edge: 9
+Vertex[3]:
+	>>> Path: 2
+	>>> Value edge: 5
+Vertex[4]:
+	>>> Path: 3
+	>>> Value edge: 8
+
+-----------------
+Value MST: 32
+-----------------
+
+>>> Dijkstra <<<
+
+Vertex[0]:
+	>>> Path: 4
+	>>> Value edge: 25
+Vertex[4]:
+	>>> Path: 3
+	>>> Value edge: 8
+
+---------------------
+Value Dijkstra: 8
+---------------------
+Autor: Rafael Maranhão Rêgo Praxedes
+Matrícula: 11503299
+Disciplina: Análise e Projeto de Algoritmos
+
+		 >>>>> Algoritmos Gulosos <<<<<
+
+Input file name: testePMedian.txt
+
+>>> Prim <<<
+
+Vertex[0]:
+	>>> Path: -1
+	>>> Value edge: 0
+Vertex[1]:
+	>>> Path: 0
+	>>> Value edge: 10
+Vertex[2]:
+	>>> Path: 1
+	>>> Value edge: 9
+Vertex[3]:
+	>>> Path: 2
+	>>> Value edge: 5
+Vertex[4]:
+	>>> Path: 3
+	>>> Value edge: 8
+
+-----------------
+Value MST: 32
+-----------------
+
+>>> Dijkstra <<<
+
+Vertex[0]:
+	>>> Path: -1
+	>>> Value edge: 0
+Vertex[4]:
+	>>> Path: 0
+	>>> Value edge: 17
+
+---------------------
+Value Dijkstra: 17
+---------------------
+Autor: Rafael Maranhão Rêgo Praxedes
+Matrícula: 11503299
+Disciplina: Análise e Projeto de Algoritmos
+
+		 >>>>> Algoritmos Gulosos <<<<<
+
+Input file name: testePMedian.txt
+
+>>> Prim <<<
+
+Vertex[0]:
+	>>> Path: -1
+	>>> Value edge: 0
+Vertex[1]:
+	>>> Path: 0
+	>>> Value edge: 10
+Vertex[2]:
+	>>> Path: 1
+	>>> Value edge: 9
+Vertex[3]:
+	>>> Path: 2
+	>>> Value edge: 5
+Vertex[4]:
+	>>> Path: 3
+	>>> Value edge: 8
+
+-----------------
+Value MST: 32
+-----------------
+
+>>> Dijkstra <<<
+
+Vertex[0]:
+	>>> Path: 1
+	>>> Value edge: 19
+Vertex[3]:
+	>>> Path: 2
+	>>> Value edge: 5
+Vertex[4]:
+	>>> Path: 3
+	>>> Value edge: 13
+
+---------------------
+Value Dijkstra: 13
+---------------------

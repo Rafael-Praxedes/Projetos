@@ -1,0 +1,22 @@
+Arquivo Couting.txt: 
+
+- Insertion sort: 0.035191 ms
+- Selection sort: 0.057112 ms
+- Merge sort: 0.038449 ms
+- Quick sort: 0.062263 ms
+- Heap sort: 0.031527 ms
+- Counting Sort: 0.235985 ms 
+- Radix Sort: 0.030484 ms
+
+Arquivo num.1000.1.txt: 
+
+- Insertion sort:
+- Selection sort:
+- Merge sort:
+- Quick sort:
+- Heap sort: 
+- Counting Sort: 2.37528 ms
+- Radix Sort: 0.455905 ms
+ 
+
+
